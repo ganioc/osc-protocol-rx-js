@@ -2,12 +2,12 @@ import * as fs from "fs";
 
 const jsonData = JSON.parse(fs.readFileSync('data/raw.json', 'utf-8'))
 
-console.log("jsonData:")
-console.log(jsonData)
+// console.log("jsonData:")
+// console.log(jsonData)
 
 const keys = Object.keys(jsonData);
-console.log("keys:")
-console.log(keys)
+// console.log("keys:")
+// console.log(keys)
 
 let data = {};
 
@@ -21,7 +21,7 @@ console.log(data)
 
 fs.writeFileSync("data/data.json", JSON.stringify(data))
 
-console.log("End")
+// console.log("End")
 
 function stringToHexArray(str){
     const arr = str.split(' ')

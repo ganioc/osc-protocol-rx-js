@@ -12,9 +12,12 @@ import  {data } from "../data/data.mjs"
 console.log("Version:", version())
 // console.log(testdata)
 // console.log("data msg1:",testdata["msg1"])
-console.log("msg1:", data.msg1)
-console.log("msg2:", data.msg2);
+// console.log("msg1:", data.msg1)
+// console.log("msg2:", data.msg2);
 print(data.msg2);
 print(data.msg1)
 
 parse(data.msg1);
+parse(data.msg2);
+
+

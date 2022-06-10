@@ -6,28 +6,19 @@
     "configurations": [
         {
             "name": "Launch Program",
-            "program": "${workspaceFolder}/app.js",
+            "program": "${workspaceFolder}/test/test.mjs",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "type": "node"
-        },
-        {
-            "name": "Attach",
-            "port": 9229,
-            "request": "attach",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node"
+            "type": "node --experiental-modules"
         },
         {
             "name": "Launch via NPM",
             "request": "launch",
             "runtimeArgs": [
-                "run-script",
-                "debug"
+                "run",
+                "test"
             ],
             "runtimeExecutable": "npm",
             "skipFiles": [
