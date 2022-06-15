@@ -5,7 +5,9 @@ import * as dgram from "dgram"
 import { print as printMsg, parse as parseMsg } from "./lib/osc.mjs"
 
 const server = dgram.createSocket('udp4');
-const PORT=9000
+//const PORT=9000
+const PORT=12000
+
 
 console.log("hello")
 
