@@ -1,0 +1,113 @@
+RotationMatrix(0~2): 0.98549795 -0.1674795 0.027284248
+orientationAngles: -0.16830558 0.01972733 0.031030381
+orientation radian: -0.16830558 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  3.3187501   10.837501   -35.643753
+RotationMatrix(0~2): 0.98472124 -0.17200537 0.027170803
+orientationAngles: -0.17289901 0.01972733 0.031030381
+orientation radian: -0.17289901 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  3.15   10.70625   -35.53125
+RotationMatrix(0~2): 0.9842354 -0.17477506 0.027101051
+orientationAngles: -0.17571184 0.01972733 0.031030381
+orientation radian: -0.17571184 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  3.0937502   10.462501   -35.5875
+RotationMatrix(0~2): 0.98381203 -0.17715193 0.02704099
+orientationAngles: -0.17812687 0.01972733 0.031030381
+orientation radian: -0.17812687 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  3.15   10.762501   -35.643753
+RotationMatrix(0~2): 0.9834222 -0.17931104 0.026986271
+orientationAngles: -0.18032157 0.01972733 0.031030381
+orientation radian: -0.18032157 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  3.16875   10.9125   -35.79375
+RotationMatrix(0~2): 0.9830885 -0.1811388 0.026939835
+orientationAngles: -0.18218014 0.01972733 0.031030381
+orientation radian: -0.18218014 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  3.0375001   11.025001   -35.86875
+RotationMatrix(0~2): 0.983049 -0.1813537 0.026934369
+orientationAngles: -0.1823987 0.01972733 0.031030381
+orientation radian: -0.1823987 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.9625   11.1   -36.112503
+RotationMatrix(0~2): 0.9831759 -0.18066187 0.026951961
+orientationAngles: -0.18169512 0.01972733 0.031030381
+orientation radian: -0.18169512 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.60625   10.89375   -36.075
+RotationMatrix(0~2): 0.9838226 -0.17709324 0.027042476
+orientationAngles: -0.17806724 0.01972733 0.031030381
+orientation radian: -0.17806724 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.5500002   10.762501   -36.09375
+RotationMatrix(0~2): 0.9844499 -0.1735572 0.02713175
+orientationAngles: -0.17447487 0.01972733 0.031030381
+orientation radian: -0.17447487 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.8125   10.856251   -36.28125
+RotationMatrix(0~2): 0.98461574 -0.17261048 0.027155586
+orientationAngles: -0.17351343 0.01972733 0.031030381
+orientation radian: -0.17351343 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.6625001   11.043751   -36.2625
+RotationMatrix(0~2): 0.9850586 -0.17005469 0.02721978
+orientationAngles: -0.17091876 0.01972733 0.031030381
+orientation radian: -0.17091876 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.41875   10.9875   -35.98125
+RotationMatrix(0~2): 0.9858079 -0.16563739 0.027330233
+orientationAngles: -0.166437 0.01972733 0.031030381
+orientation radian: -0.166437 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.41875   11.025001   -36.018753
+RotationMatrix(0~2): 0.9864769 -0.16158886 0.027430916
+orientationAngles: -0.16233233 0.01972733 0.031030381
+orientation radian: -0.16233233 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.5875   11.15625   -36.1875
+RotationMatrix(0~2): 0.9868501 -0.15928368 0.027488004
+orientationAngles: -0.15999644 0.01972733 0.031030381
+orientation radian: -0.15999644 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.5875   11.212501   -36.131252
+RotationMatrix(0~2): 0.98719156 -0.1571451 0.027540816
+orientationAngles: -0.15783012 0.01972733 0.031030381
+orientation radian: -0.15783012 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.7   11.45625   -36.318752
+RotationMatrix(0~2): 0.9873928 -0.15586948 0.027572239
+orientationAngles: -0.15653835 0.01972733 0.031030381
+orientation radian: -0.15653835 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.86875   11.475   -36.600002
+RotationMatrix(0~2): 0.9873412 -0.15619701 0.027564175
+orientationAngles: -0.15687001 0.01972733 0.031030381
+orientation radian: -0.15687001 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  2.8500001   11.55   -36.5625
+RotationMatrix(0~2): 0.98733824 -0.15621604 0.02756371
+orientationAngles: -0.15688926 0.01972733 0.031030381
+orientation radian: -0.15688926 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  3.0187502   11.512501   -36.862503
+RotationMatrix(0~2): 0.9870931 -0.15776426 0.027525537
+orientationAngles: -0.15845725 0.01972733 0.031030381
+orientation radian: -0.15845725 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  3.2625   11.587501   -36.975002
+RotationMatrix(0~2): 0.9865337 -0.1612404 0.027439557
+orientationAngles: -0.16197915 0.01972733 0.031030381
+orientation radian: -0.16197915 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  3.35625   11.45625   -36.862503
+RotationMatrix(0~2): 0.98584366 -0.16542391 0.027335558
+orientationAngles: -0.16622047 0.01972733 0.031030381
+orientation radian: -0.16622047 0.01972733 0.031030381
+received osc message /magneticfield
+ values:  3.2062502   11.34375   -36.956253
+RotationMatrix(0~2): 0.9854175 -0.16795425 0.027272385
+orientationAngles: -0.16878724 0.01972733 0.031030381
+orientation radian: -0.16878724 0.01972733 0.031030381

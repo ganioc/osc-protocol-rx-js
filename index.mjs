@@ -18,7 +18,7 @@ server.on('error', (err) => {
 
 server.on('message', (msg, rinfo) => {
     console.log(`server got: msg from ${rinfo.address}:${rinfo.port}`);
-    //console.log(`${msg}`);
+    // console.log(`${msg}`);
     console.log(Buffer.from(msg));
     // 2f 67 72 61 76 69 74 79
     // func_analyze(msg);
