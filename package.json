@@ -9,7 +9,9 @@
     "collect": "node --experimental-modules ./collect.mjs",
     "es6": "node --experimental-modules es6.mjs",
     "start": "node --experimental-modules ./index.mjs",
-    "update": "node --experimental-modules ./data/update.mjs"
+    "update": "node --experimental-modules ./data/update.mjs",
+    "clean": "rm ./data/LSM303DLHC/*.*",
+    "kalman": "node --experimental-modules ./test/test_kalman.mjs"
   },
   "author": "yango",
   "license": "ISC",

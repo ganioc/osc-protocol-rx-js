@@ -4,7 +4,7 @@ import { SerialPort } from "serialport"
 // import { print } from "../lib/osc.mjs"
 
 import * as dgram from "dgram"
-
+import * as fs from "fs"
 
 const PORT=12000;
 const HOST="127.0.0.1";
@@ -24,6 +24,32 @@ let state = STATE_IDLE;
 let buffer = Buffer.alloc(BUFFER_SIZE);
 let index = 0;
 
+const TARGET_FILE_NAME="lsm1303"
+let acc_x=[];
+let acc_y=[];
+let acc_z=[];
+let mag_x=[];
+let mag_y=[];
+let mag_z=[];
+
+process.on('SIGINT', ()=>{
+    console.log("Exit ctrl-c")
+    // save to file
+    const PATH="./data/LSM303DLHC/"
+    const DATE=new Date()
+    const name = "" + DATE.getDay()+DATE.getHours()+"-" + DATE.getMinutes() + "-" +
+        +DATE.getSeconds()
+
+    fs.writeFileSync(PATH+"acc_x"+name+".json", JSON.stringify(acc_x).replace(/"/g,""))
+    fs.writeFileSync(PATH+"acc_y"+name+".json", JSON.stringify(acc_y).replace(/"/g,""))
+    fs.writeFileSync(PATH+"acc_z"+name+".json", JSON.stringify(acc_z).replace(/"/g,""))
+    fs.writeFileSync(PATH+"mag_x"+name+".json", JSON.stringify(mag_x).replace(/"/g,""))
+    fs.writeFileSync(PATH+"mag_y"+name+".json", JSON.stringify(mag_y).replace(/"/g,""))
+    fs.writeFileSync(PATH+"mag_z"+name+".json", JSON.stringify(mag_z).replace(/"/g,""))
+
+    console.log("Saved to ", PATH, name)
+    process.exit()
+})
 
 var client = dgram.createSocket('udp4');
 
@@ -124,23 +150,30 @@ async function handle_serial_data(buf){
 
     console.log("Magnetometer x:", item_array[MAGNETx])
     console.log("Magnetometer y:", item_array[MAGNETy])
-    console.log("Magnetometer x:", item_array[MAGNETz])    
+    console.log("Magnetometer x:", item_array[MAGNETz])   
+    
+    acc_x.push(item_array[ACCx])
+    acc_y.push(item_array[ACCy])
+    acc_z.push(item_array[ACCz])
+    mag_x.push(item_array[MAGNETx])
+    mag_y.push(item_array[MAGNETy])
+    mag_z.push(item_array[MAGNETz])
 
     // generate acce packet of OSC message,
     let acceMsg = createACCMsg(item_array[ACCx],
             item_array[ACCy],
             item_array[ACCz]);
 
-    console.log(acceMsg);
+    // console.log(acceMsg);
     // await send(acceMsg)
-    client.send(acceMsg,0,acceMsg.length, PORT,HOST)
+    //client.send(acceMsg,0,acceMsg.length, PORT,HOST)
 
     // generate magnet packet of OSC message,
     let magnetMsg = createMAGNETMsg(item_array[MAGNETx],
             item_array[MAGNETy],
             item_array[MAGNETz]);
 
-    console.log(magnetMsg);
+    //console.log(magnetMsg);
     // await send(magnetMsg)
     client.send(magnetMsg,0,magnetMsg.length, PORT,HOST)
 

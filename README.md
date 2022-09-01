@@ -13,4 +13,12 @@ node ./test/serial.mjs
 /accelerometer
 
 
+## Gathering 6-axis data from STM32F3-Discovery
+node ./test/serial.mjs
+
+Capture data pic.
+
+
+
+
 
