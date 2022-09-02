@@ -5,6 +5,7 @@ import { SerialPort } from "serialport"
 
 import * as dgram from "dgram"
 import * as fs from "fs"
+import { KalmanFilter } from "../lib/kalman.mjs";
 
 const PORT=12000;
 const HOST="127.0.0.1";
@@ -24,13 +25,23 @@ let state = STATE_IDLE;
 let buffer = Buffer.alloc(BUFFER_SIZE);
 let index = 0;
 
-const TARGET_FILE_NAME="lsm1303"
 let acc_x=[];
 let acc_y=[];
 let acc_z=[];
 let mag_x=[];
 let mag_y=[];
 let mag_z=[];
+
+// Kalman filter parameters
+const R=0.025
+const Q=10
+
+const filterAccX = new KalmanFilter( R,Q,1,0,1.0);
+const filterAccY = new KalmanFilter( R,Q,1,0,1.0);
+const filterAccZ = new KalmanFilter( R,Q,1,0,1.0);
+const filterMagX = new KalmanFilter( R,Q,1,0,1.0);
+const filterMagY = new KalmanFilter( R,Q,1,0,1.0);
+const filterMagZ = new KalmanFilter( R,Q,1,0,1.0);
 
 process.on('SIGINT', ()=>{
     console.log("Exit ctrl-c")
@@ -40,12 +51,12 @@ process.on('SIGINT', ()=>{
     const name = "" + DATE.getDay()+DATE.getHours()+"-" + DATE.getMinutes() + "-" +
         +DATE.getSeconds()
 
-    fs.writeFileSync(PATH+"acc_x"+name+".json", JSON.stringify(acc_x).replace(/"/g,""))
-    fs.writeFileSync(PATH+"acc_y"+name+".json", JSON.stringify(acc_y).replace(/"/g,""))
-    fs.writeFileSync(PATH+"acc_z"+name+".json", JSON.stringify(acc_z).replace(/"/g,""))
-    fs.writeFileSync(PATH+"mag_x"+name+".json", JSON.stringify(mag_x).replace(/"/g,""))
-    fs.writeFileSync(PATH+"mag_y"+name+".json", JSON.stringify(mag_y).replace(/"/g,""))
-    fs.writeFileSync(PATH+"mag_z"+name+".json", JSON.stringify(mag_z).replace(/"/g,""))
+    // fs.writeFileSync(PATH+"acc_x"+name+".json", JSON.stringify(acc_x).replace(/"/g,""))
+    // fs.writeFileSync(PATH+"acc_y"+name+".json", JSON.stringify(acc_y).replace(/"/g,""))
+    // fs.writeFileSync(PATH+"acc_z"+name+".json", JSON.stringify(acc_z).replace(/"/g,""))
+    // fs.writeFileSync(PATH+"mag_x"+name+".json", JSON.stringify(mag_x).replace(/"/g,""))
+    // fs.writeFileSync(PATH+"mag_y"+name+".json", JSON.stringify(mag_y).replace(/"/g,""))
+    // fs.writeFileSync(PATH+"mag_z"+name+".json", JSON.stringify(mag_z).replace(/"/g,""))
 
     console.log("Saved to ", PATH, name)
     process.exit()
@@ -159,21 +170,38 @@ async function handle_serial_data(buf){
     mag_y.push(item_array[MAGNETy])
     mag_z.push(item_array[MAGNETz])
 
-    // generate acce packet of OSC message,
-    let acceMsg = createACCMsg(item_array[ACCx],
-            item_array[ACCy],
-            item_array[ACCz]);
+    let filtered_ACCx = filterAccX.filter(item_array[ACCx])
+    let filtered_ACCy = filterAccY.filter(item_array[ACCy])
+    let filtered_ACCz = filterAccZ.filter(item_array[ACCz])
 
-    // console.log(acceMsg);
+
+    console.log("Filtered ACC x: ", filtered_ACCx)
+    console.log("Filtered ACC y: ", filtered_ACCy) 
+    console.log("Filtered ACC x: ", filtered_ACCz)
+
+    // generate acce packet of OSC message,
+    let acceMsg = createACCMsg(filtered_ACCx,
+        filtered_ACCy,
+        filtered_ACCz);
+
+    console.log(acceMsg);
     // await send(acceMsg)
-    //client.send(acceMsg,0,acceMsg.length, PORT,HOST)
+    client.send(acceMsg,0,acceMsg.length, PORT,HOST)
 
     // generate magnet packet of OSC message,
-    let magnetMsg = createMAGNETMsg(item_array[MAGNETx],
-            item_array[MAGNETy],
-            item_array[MAGNETz]);
+    let filtered_MAGx = filterMagX.filter(item_array[MAGNETx])
+    let filtered_MAGy = filterMagY.filter(item_array[MAGNETy])
+    let filtered_MAGz = filterMagZ.filter(item_array[MAGNETz])
 
-    //console.log(magnetMsg);
+    console.log("filtered MAG x:", filtered_MAGx)
+    console.log("filtered MAG y:", filtered_MAGy)
+    console.log("filtered MAG x:", filtered_MAGz) 
+
+    let magnetMsg = createMAGNETMsg(filtered_MAGx,
+        filtered_MAGy,
+        filtered_MAGz);
+
+    console.log(magnetMsg);
     // await send(magnetMsg)
     client.send(magnetMsg,0,magnetMsg.length, PORT,HOST)
 
