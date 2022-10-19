@@ -18,6 +18,9 @@ node ./test/serial.mjs
 
 Capture data pic.
 
+## HTML file, where is it?
+在yj/project/nodejs/kalmanjs/目录的下面, 
+
 
 
 

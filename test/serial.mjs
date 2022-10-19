@@ -4,7 +4,7 @@ import { SerialPort } from "serialport"
 // import { print } from "../lib/osc.mjs"
 
 import * as dgram from "dgram"
-import * as fs from "fs"
+// import * as fs from "fs"
 import { KalmanFilter } from "../lib/kalman.mjs";
 
 const PORT=12000;
