@@ -90,6 +90,7 @@ port.on('data', async function (data) {
     parse_serial(data)
 })
 function clean_buffer(){
+    index = 0;
     for(let i=0; i< BUFFER_SIZE; i++){
         buffer[i] = 0;
     }

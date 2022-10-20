@@ -11,7 +11,8 @@
     "start": "node --experimental-modules ./index.mjs",
     "update": "node --experimental-modules ./data/update.mjs",
     "clean": "rm ./data/LSM303DLHC/*.*",
-    "kalman": "node --experimental-modules ./test/test_kalman.mjs"
+    "kalman": "node --experimental-modules ./test/test_kalman.mjs",
+    "wserial": "node --experimental-modules ./test/win10-serial.mjs"
   },
   "author": "yango",
   "license": "ISC",
